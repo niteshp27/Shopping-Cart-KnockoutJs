@@ -6,8 +6,8 @@
     "HTML5",
 	"CSS"
   ],
-  "website": "https://small-sharp-tool.com/",
-  "repository": "https://github.com/jane-doe/small-sharp-tool",
+  "website": "https://github.com/niteshp27/Shopping-Cart-KnockoutJs",
+  "repository": "https://github.com/niteshp27/Shopping-Cart-KnockoutJs",
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-nodejs"
