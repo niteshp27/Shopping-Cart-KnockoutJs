@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<head>
+    <title>Cake shop</title>
+    <link href="content/bootstrap.css" rel="stylesheet" />
+    <link href="content/style.css" rel="stylesheet" />
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/knockout-3.2.0.js"></script>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+<!-- product catalog page-->
+<div class="page card-panel" id="main">
+    <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <img src="http://placehold.it/50X50&amp;text=item" alt="Logo" class="img-responsive border-grey">
+                <hr class="border-color-top-black" />
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 class="page-title text-bold text-color-dark">Welcome to cakeshop</h1>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h3 class="text-color-light">Select the below cakes to add to your cart:</h3>
+            </div>
+    </div>
+
+    <div class=row>
+	<!--leftside-->
+		<div id="left-side" class="col-lg-8 col-md-12 col-sm-12 col-xs-12 left-catalog-cart " >
+            <div data-bind="template: { name: 'allCakeList', foreach: cakeList }">
+
+            </div>
+		</div>
+
+		<!--rightside-->
+		<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 right-catalog-cart border-color-left-grey xs-border-color-left-none " >
+		    <div class="row">
+		            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<h3 class="text-bold text-color-light right-cart_title">
+							My Cart</h3>
+		            </div>
+		    </div>
+		    <div class="row">
+		            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		                    <p>You currently have the following items in cart.</p>
+		            </div>
+		    </div>
+            <div id="right-side" class="">
+                  <div class="row">
+                      <hr />
+                  </div>
+                <div class="" data-bind="template: { name: 'allCartItemList', foreach: cartList }">
+
+
+			    
+                </div>
+              
+                cartList: <code data-bind="text: ko.toJSON($root.cartList)"></code>
+                subTotal: <code data-bind="text: ko.toJSON($root.subTotal)"></code>
+                updateSubTotal: <code data-bind="text: ko.toJSON($root.updateSubTotal)"></code>
+            </div>
+            <div id="right-bottom-side">
+                <div data-bind="visible: orderTotal() > 0 " >
+                    <!--<div>-->
+			        <div class="catalog-cart-checkout text-align-right ">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div>Order Total: <span data-bind="text: orderTotal">Order total</span></div>
+                            </div>
+                        </div>
+				        <div class="row">
+					        <div class="col-lg-12 co-md-12 col-sm-12 col-xs-12">
+						        <button class="btn btn-text-large bg-color-dark btn-checkout" onclick="">Checkout</button>
+					        </div>
+				        </div>
+			        </div>			    
+                </div>
+                <!--Order: <code data-bind="text: ko.toJSON($root)"></code>-->
+            </div>
+		</div>
+	</div>
+
+</div>
+
+    <script type="text/html" id="allCakeList">
+			<div class="catalog-device-list ">
+				<div class="row">
+					<div class="col-lg-2 col-md-3 col-sm-2 col-xs-12">
+					<img data-bind="attr:{ src : '/images/' + image() + '.jpg' }" alt="Item" class="img-responsive border-grey" style="width: 200px" />
+					</div>
+					<div class="col-lg-7 col-md-6 col-sm-7 col-xs-12">
+						<h4 class="text-color-dark font-large" data-bind="text: title" >Cake 1.</h4>
+						<p class="text-color-light" data-bind="text: description">Cake 1 description.</p>
+                        <p>
+                            <span class="text-color-dark">Price per item: </span>
+                            <span class="text-color-light" data-bind="text: price">Price</span>
+                        </p>
+                        
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+						<a href="#" class="btn btn-text btn-addtocart" data-bind="click: $root.addToCart, attr: { id: cakeid }, text:text" id="someid">Add to My cart.</a>
+					</div>
+				</div>
+			</div>
+			<hr />
+            <div class="row">
+                <!--<code data-bind="text: ko.toJSON($root.cakeList)"></code>-->
+            </div>
+
+    </script>
+
+    <script type="text/html" id="allCartItemList">
+			    <div class="catalog-cart-list">
+				    <div class="row ">
+					    <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
+						    <h4 class="text-color-dark font-large" data-bind="text: title">Cake 1</h4>
+						    <p href="#" class="text-color-light" data-bind="text: description">Cake 1 description.</p> 
+                            <p>
+                                <span class="text-color-dark">Price per item: </span>
+                                <span class="text-color-light" data-bind="text: price">Price</span>
+                            </p>
+                            <p>
+                                <span class="text-color-dark">Total Price: </span>
+                                <span class="text-color-light" data-bind="text: totalprice">Total Price</span>
+                            </p>
+                            <p class="text-color-light">Quantity: <input data-bind="value: quantity, valueUpdate: 'afterkeydown'" /></p>                         
+					    </div>
+					    <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12">
+			                <a class="btn btn-text btn-removefromcart" href="#" data-bind="click: $root.removeFromCart">Remove</a>
+					    </div>
+			        </div>
+
+			    </div>
+                <div class="row">
+                    <hr />
+                                    <!--updated: <code data-bind="text: ko.toJSON($root)"></code>-->
+                </div>
+    </script>
+
+</body>
+</html>
