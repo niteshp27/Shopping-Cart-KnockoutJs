@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
-    <title>Cake shop</title>
+    <title>Cake shop1</title>
     <link href="content/bootstrap.css" rel="stylesheet" />
     <link href="content/style.css" rel="stylesheet" />
     <script src="scripts/jquery-2.1.0.min.js"></script>
@@ -49,17 +49,15 @@
 		            </div>
 		    </div>
             <div id="right-side" class="">
-                  <div class="row">
-                      <hr />
-                  </div>
+                  
                 <div class="" data-bind="template: { name: 'allCartItemList', foreach: cartList }">
 
 
 			    
                 </div>
-              
-                cartList: <code data-bind="text: ko.toJSON($root.cartList)"></code>
-                subTotal: <code data-bind="text: ko.toJSON($root.subTotal)"></code>
+             
+                cartList: <code data-bind="text: ko.toJSON($root.cartList)"></code><hr>
+                subTotal: <code data-bind="text: ko.toJSON($root.subTotal)"></code><hr>
                 updateSubTotal: <code data-bind="text: ko.toJSON($root.updateSubTotal)"></code>
             </div>
             <div id="right-bottom-side">
