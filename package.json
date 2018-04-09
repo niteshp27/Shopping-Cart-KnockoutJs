@@ -3,6 +3,7 @@
   "name": "kocart",
   "version": "0.1.0",
   "private": false,
+  "website": "https://kocart.herokuapp.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/niteshp27/Shopping-Cart-KnockoutJs.git"
