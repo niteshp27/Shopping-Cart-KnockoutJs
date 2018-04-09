@@ -1,7 +1,16 @@
 {
-	"buildpacks": [
-		{
-		  "url": "https://github.com/heroku/heroku-buildpack-php"
-		}
-	],
+  "name": "Shopping Cart knockoutJs",
+  "description": "Shopping Cart knockoutJs",
+  "keywords": [
+    "JS",
+    "HTML5",
+	"CSS"
+  ],
+  "website": "https://small-sharp-tool.com/",
+  "repository": "https://github.com/jane-doe/small-sharp-tool",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
 }
